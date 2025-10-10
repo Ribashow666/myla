@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa História - Mylena ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            color: #ffa4c4;
+            font-style: italic;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #ff6b9d 0%, #c06c84 50%, #ff6b9d 100%);
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+        }
+
+        .timeline-event {
+            position: relative;
+            margin-bottom: 80px;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-event:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-event:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-event:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-event:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-event:nth-child(4) { animation-delay: 0.8s; }
+        .timeline-event:nth-child(5) { animation-delay: 1s; }
+        .timeline-event:nth-child(6) { animation-delay: 1.2s; }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 107, 157, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 107, 157, 0.8);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.4);
+        }
+
+        .timeline-date {
+            font-size: 1.1em;
+            color: #ffa4c4;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.6em;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .timeline-description {
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+
+        .timeline-photo {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-top: 15px;
+            border: 3px solid rgba(255, 107, 157, 0.3);
+        }
+
+        .timeline-photo-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.7);
+            border: 3px solid rgba(255, 107, 157, 0.3);
+        }
+
+        .timeline-dot {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid #1a1a2e;
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.8);
+            z-index: 10;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .back-button.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.6);
+        }
+
+        .next-button {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .next-button.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .next-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-event {
+                flex-direction: row !important;
+                padding-left: 70px;
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>💕 Nossa História 💕</h1>
+        <p>Cada momento ao seu lado é especial, Mylena</p>
+    </div>
+
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-event">
+            <div class="timeline-content">
+                <div class="timeline-date">📅 [Data do primeiro encontro]</div>
+                <h3 class="timeline-title">Nosso Primeiro Encontro</h3>
+                <p class="timeline-description">
+                    O dia em que tudo começou... Aquele momento em que nossos olhares se cruzaram 
+                    e eu soube que você era especial. Cada segundo foi mágico! ✨
+                </p>
+                <div class="timeline-photo-placeholder">📷 Adicione sua foto aqui</div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-event">
+            <div class="timeline-content">
+                <div class="timeline-date">💌 [Data do primeiro beijo]</div>
+                <h3 class="timeline-title">Nosso Primeiro Beijo</h3>
+                <p class="timeline-description">
+                    Um momento inesquecível que ficará guardado para sempre no meu coração. 
+                    Foi quando percebi que não queria mais estar longe de você. 💋
+                </p>
+                <div class="timeline-photo-placeholder">📷 Adicione sua foto aqui</div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-event">
+            <div class="timeline-content">
+                <div class="timeline-date">❤️ [Data que começaram a namorar]</div>
+                <h3 class="timeline-title">Início do Nosso Namoro</h3>
+                <p class="timeline-description">
+                    O dia mais feliz! Quando você aceitou ser minha namorada e começamos 
+                    essa jornada incrível juntos. Cada dia ao seu lado é um presente! 🎁
+                </p>
+                <div class="timeline-photo-placeholder">📷 Adicione sua foto aqui</div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-event">
+            <div class="timeline-content">
+                <div class="timeline-date">🎉 [Data especial 1]</div>
+                <h3 class="timeline-title">Momento Especial</h3>
+                <p class="timeline-description">
+                    Aquele dia que nunca vamos esquecer! Estava tudo perfeito: o lugar, 
+                    o clima, e principalmente, você ao meu lado. 🌟
+                </p>
+                <div class="timeline-photo-placeholder">📷 Adicione sua foto aqui</div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-event">
+            <div class="timeline-content">
+                <div class="timeline-date">🌅 [Data especial 2]</div>
+                <h3 class="timeline-title">Outra Aventura Juntos</h3>
+                <p class="timeline-description">
+                    Mais um capítulo da nossa história! Cada experiência com você 
+                    se torna uma memória preciosa que guardo com carinho. 💖
+                </p>
+                <div class="timeline-photo-placeholder">📷 Adicione sua foto aqui</div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-event">
+            <div class="timeline-content">
+                <div class="timeline-date">✨ Hoje e Sempre</div>
+                <h3 class="timeline-title">Nosso Futuro</h3>
+                <p class="timeline-description">
+                    E a nossa história continua... Cada dia escrevo mais uma página dessa 
+                    história linda com você. Te amo hoje, amanhã e sempre, Mylena! 💕∞
+                </p>
+                <div class="timeline-photo-placeholder">📷 Nossa jornada continua...</div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-button" id="backButton">← Voltar</a>
+    <a href="playlist.html" class="next-button" id="nextButton">Próxima →</a>
+
+    <script>
+        // Detectar quando o usuário chega perto do final da página
+        window.addEventListener('scroll', function() {
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const clientHeight = document.documentElement.clientHeight;
+            
+            // Se o usuário rolou até 80% da página, mostra os botões
+            if (scrollTop + clientHeight >= scrollHeight * 0.8) {
+                document.getElementById('backButton').classList.add('visible');
+                document.getElementById('nextButton').classList.add('visible');
+            } else {
+                document.getElementById('backButton').classList.remove('visible');
+                document.getElementById('nextButton').classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>

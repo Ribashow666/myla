@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Trilha Sonora ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .music-notes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .note {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.3;
+            animation: floatNote 8s infinite;
+        }
+
+        @keyframes floatNote {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(240, 147, 251, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(245, 87, 108, 0.8));
+            }
+        }
+
+        .header p {
+            font-size: 1.4em;
+            color: #f5a4c4;
+            font-style: italic;
+        }
+
+        .playlists-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .playlist-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(240, 147, 251, 0.2);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .playlist-card:nth-child(1) { animation-delay: 0.2s; }
+        .playlist-card:nth-child(2) { animation-delay: 0.4s; }
+        .playlist-card:nth-child(3) { animation-delay: 0.6s; }
+        .playlist-card:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(240, 147, 251, 0.6);
+            box-shadow: 0 15px 50px rgba(240, 147, 251, 0.3);
+        }
+
+        .playlist-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .playlist-title {
+            font-size: 1.8em;
+            color: #f093fb;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .playlist-description {
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: #e0e0e0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .playlist-link {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .playlist-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.5);
+        }
+
+        .spotify-player {
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .spotify-player iframe {
+            width: 100%;
+            height: 352px;
+            border: none;
+            border-radius: 12px;
+        }
+
+        .surprise-section {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .surprise-button {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 216, 155, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .surprise-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 216, 155, 0.6);
+        }
+
+        .surprise-content {
+            display: none;
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px;
+            border: 2px solid rgba(255, 216, 155, 0.3);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .surprise-content.show {
+            display: block;
+        }
+
+        .surprise-message {
+            font-size: 1.4em;
+            line-height: 1.8;
+            color: #ffd89b;
+            margin-bottom: 30px;
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #ffd89b;
+            text-align: left;
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #e0e0e0;
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 5px 20px rgba(240, 147, 251, 0.4);
+            transition: all 0.3s ease;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .back-button.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(240, 147, 251, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .playlists-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="music-notes" id="musicNotes"></div>
+
+    <div class="header">
+        <h1>🎵 Nossa Trilha Sonora 🎵</h1>
+        <p>As músicas que marcam nossa história, Mylena</p>
+    </div>
+
+    <div class="playlists-container">
+        <div class="playlist-card">
+            <div class="playlist-icon">💖</div>
+            <h3 class="playlist-title">Nossa Playlist</h3>
+            <p class="playlist-description">
+                Aquelas músicas que me fazem lembrar de você e de todos os nossos momentos especiais juntos.
+            </p>
+            <div class="spotify-player">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EJB2JsrUZLRrq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="playlist-card">
+            <div class="playlist-icon">🌙</div>
+            <h3 class="playlist-title">Noites Especiais</h3>
+            <p class="playlist-description">
+                Para aquelas noites conversando até tarde, curtindo a companhia um do outro.
+            </p>
+            <div class="spotify-player">
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2R6PIzBpnZPpAzXbGxAmqq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
+        </div>
+
+        <div class="playlist-card">
+            <div class="playlist-icon">🎤</div>
+            <h3 class="playlist-title">Nosso Karaokê</h3>
+            <p class="playlist-description">
+                Nosso karaokê particular, com aquelas músicas que a gente canta junto e se diverte.
+            </p>
+            <div class="spotify-player">
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7KA4W4McWYRpgf0fWsJZWB?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
+        </div>
+
+        <div class="playlist-card">
+            <div class="playlist-icon">💫</div>
+            <h3 class="playlist-title">Nossa Música</h3>
+            <p class="playlist-description">
+                Aquela música especial que é só nossa, que quando toca eu penso em você.
+            </p>
+            <div class="spotify-player">
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4NnWuGQujzWUEg0uZokO5M?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="playlist-card">
+            <div class="playlist-icon">😘</div>
+            <h3 class="playlist-title">Uma música sua!</h3>
+            <p class="playlist-description">
+                Aquela música que você escolheu e que significa muito pra você.
+            </p>
+            <div class="spotify-player">
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Qyc6fS4DsZjB2mRW9DsQs?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="surprise-section">
+        <button class="surprise-button" onclick="showSurprise()">
+            ✨ Clique aqui para uma surpresa ✨
+        </button>
+
+        <div class="surprise-content" id="surpriseContent">
+            <h2 class="surprise-message">💕 Uma mensagem especial para você 💕</h2>
+            <div class="love-letter">
+                <p>Meu amor,</p>
+                <br>
+                <p>
+                    Cada música que ouvimos juntos carrega um pedacinho da nossa história. 
+                    Quando escuto essas canções, sinto como se você estivesse aqui comigo, 
+                    mesmo estando longe.
+                </p>
+                <br>
+                <p>
+                    Você transformou minha vida de uma forma que eu nem consigo explicar em palavras. 
+                    Seu sorriso, seu carinho, sua presença... tudo em você me faz querer ser melhor 
+                    a cada dia.
+                </p>
+                <br>
+                <p>
+                    Obrigado por existir, por fazer parte da minha vida, e por me deixar fazer 
+                    parte da sua. Você é meu presente mais precioso! ❤️
+                </p>
+                <br>
+                <p style="text-align: right; font-style: italic;">
+                    Te amo infinitamente,<br>
+                    Sempre seu ∞
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <a href="timeline.html" class="back-button" id="backButton">← Voltar</a>
+
+    <script>
+        // Criar notas musicais flutuantes
+        function createNote() {
+            const notes = ['🎵', '🎶', '🎼', '🎸', '🎹'];
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.innerHTML = notes[Math.floor(Math.random() * notes.length)];
+            note.style.left = Math.random() * 100 + '%';
+            note.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            note.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('musicNotes').appendChild(note);
+            
+            setTimeout(() => note.remove(), 10000);
+        }
+
+        setInterval(createNote, 1000);
+
+        // Mostrar surpresa
+        function showSurprise() {
+            const surpriseContent = document.getElementById('surpriseContent');
+            surpriseContent.classList.add('show');
+            
+            // Esconder o botão
+            event.target.style.display = 'none';
+        }
+
+        // Mostrar botão de voltar quando chegar perto do final
+        window.addEventListener('scroll', function() {
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+            
+            const scrollPercent = (scrollTop + clientHeight) / scrollHeight;
+            
+            // Se o usuário rolou até 60% da página, mostra o botão
+            if (scrollPercent >= 0.6) {
+                document.getElementById('backButton').classList.add('visible');
+            } else {
+                document.getElementById('backButton').classList.remove('visible');
+            }
+        });
+        
+        // Verificar também ao clicar na surpresa
+        document.querySelector('.surprise-button').addEventListener('click', function() {
+            setTimeout(function() {
+                const scrollHeight = document.documentElement.scrollHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const clientHeight = window.innerHeight;
+                const scrollPercent = (scrollTop + clientHeight) / scrollHeight;
+                
+                if (scrollPercent >= 0.6) {
+                    document.getElementById('backButton').classList.add('visible');
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
