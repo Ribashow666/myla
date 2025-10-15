@@ -59,6 +59,17 @@
         </div>
 
         <div class="playlist-card">
+            <div class="playlist-icon">😁</div>
+            <h3 class="playlist-title">Uma música minha!</h3>
+            <p class="playlist-description">
+                Aquela música que eu escolhi e que significa muito pra mim.
+            </p>
+            <div class="spotify-player">
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2mIrfke7vosXAEWfz6ucyo?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="playlist-card">
             <div class="playlist-icon">😘</div>
             <h3 class="playlist-title">Uma música sua!</h3>
             <p class="playlist-description">
@@ -74,38 +85,30 @@
         <button class="surprise-button" onclick="showSurprise()">
             ✨ Clique aqui para uma surpresa ✨
         </button>
-
         <div class="surprise-content" id="surpriseContent">
-            <h2 class="surprise-message">💕 Uma mensagem especial para você 💕</h2>
-            <div class="love-letter">
-                <p>Meu amor,</p>
-                <br>
-                <p>
-                    Cada música que ouvimos juntos carrega um pedacinho da nossa história. 
-                    Quando escuto essas canções, sinto como se você estivesse aqui comigo, 
-                    mesmo estando longe.
-                </p>
-                <br>
-                <p>
-                    Você transformou minha vida de uma forma que eu nem consigo explicar em palavras. 
-                    Seu sorriso, seu carinho, sua presença... tudo em você me faz querer ser melhor 
-                    a cada dia.
-                </p>
-                <br>
-                <p>
-                    Obrigado por existir, por fazer parte da minha vida, e por me deixar fazer 
-                    parte da sua. Você é meu presente mais precioso! ❤️
-                </p>
-                <br>
-                <p style="text-align: right; font-style: italic;">
-                    Te amo infinitamente,<br>
-                    Sempre seu ∞
-                </p>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 30px 0;">
+                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px;">
+                    <div style="font-size: 2.5em; color: #f093fb; font-weight: bold;" id="years">0</div>
+                    <div style="color: #e0e0e0; margin-top: 10px;">Anos</div>
+                </div>
+                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px;">
+                    <div style="font-size: 2.5em; color: #f5576c; font-weight: bold;" id="months">0</div>
+                    <div style="color: #e0e0e0; margin-top: 10px;">Meses</div>
+                </div>
+                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px;">
+                    <div style="font-size: 2.5em; color: #ffd89b; font-weight: bold;" id="days">0</div>
+                    <div style="color: #e0e0e0; margin-top: 10px;">Dias</div>
+                </div>
+                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px;">
+                    <div style="font-size: 2.5em; color: #f093fb; font-weight: bold;" id="hours">0</div>
+                    <div style="color: #e0e0e0; margin-top: 10px;">Horas</div>
+                </div>
             </div>
         </div>
     </div>
 
     <a href="timeline.html" class="back-button" id="backButton">← Voltar</a>
+    <a href="dashboard.html" class="next-button" id="nextButton">Dashboard →</a>
 
 </body>
 </html>

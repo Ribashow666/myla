@@ -1,4 +1,4 @@
-        // Criar notas musicais flutuantes
+// Criar notas musicais flutuantes
         function createNote() {
             const notes = ['🎵', '🎶', '🎼', '🎸', '🎹'];
             const note = document.createElement('div');
@@ -21,6 +21,36 @@
             
             // Esconder o botão
             event.target.style.display = 'none';
+            
+            // Iniciar o contador
+            updateCounter();
+            setInterval(updateCounter, 1000);
+        }
+        
+        // Calcular e atualizar o contador
+        function updateCounter() {
+            const yearsEl = document.getElementById('years');
+            const monthsEl = document.getElementById('months');
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            
+            // Verificar se os elementos existem antes de atualizar
+            if (!yearsEl || !monthsEl || !daysEl || !hoursEl) return;
+            
+            const startDate = new Date('2025-06-05T21:30:00');
+            const now = new Date();
+            
+            const diff = now - startDate;
+            
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            
+            yearsEl.textContent = years;
+            monthsEl.textContent = months;
+            daysEl.textContent = days;
+            hoursEl.textContent = hours;
         }
 
         // Mostrar botão de voltar quando chegar perto do final
@@ -31,11 +61,13 @@
             
             const scrollPercent = (scrollTop + clientHeight) / scrollHeight;
             
-            // Se o usuário rolou até 60% da página, mostra o botão
+            // Se o usuário rolou até 60% da página, mostra os botões
             if (scrollPercent >= 0.6) {
                 document.getElementById('backButton').classList.add('visible');
+                document.getElementById('nextButton').classList.add('visible');
             } else {
                 document.getElementById('backButton').classList.remove('visible');
+                document.getElementById('nextButton').classList.remove('visible');
             }
         });
         
@@ -49,6 +81,7 @@
                 
                 if (scrollPercent >= 0.6) {
                     document.getElementById('backButton').classList.add('visible');
+                    document.getElementById('nextButton').classList.add('visible');
                 }
             }, 500);
         });
