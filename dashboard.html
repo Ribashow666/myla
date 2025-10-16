@@ -1,198 +1,98 @@
-import React, { useState, useEffect } from 'react';
-import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
-import { Heart, Calendar, MessageCircle, Music, Camera, Smile } from 'lucide-react';
-
-export default function Dashboard() {
-  const [loveLevel, setLoveLevel] = useState(0);
-  
-  useEffect(() => {
-    // Animar o nível de amor
-    const interval = setInterval(() => {
-      setLoveLevel(prev => (prev < 100 ? prev + 1 : 100));
-    }, 20);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Dados dos gráficos
-  const monthlyData = [
-    { mes: 'Mai', felicidade: 85, amor: 90 },
-    { mes: 'Jun', felicidade: 90, amor: 92 },
-    { mes: 'Jul', felicidade: 88, amor: 95 },
-    { mes: 'Ago', felicidade: 92, amor: 97 },
-    { mes: 'Set', felicidade: 95, amor: 98 },
-    { mes: 'Out', felicidade: 98, amor: 100 }
-  ];
-
-  const activitiesData = [
-    { name: 'Conversas', value: 450 },
-    { name: 'Chamadas', value: 120 },
-    { name: 'Fotos', value: 230 },
-    { name: 'Músicas', value: 180 }
-  ];
-
-  const emotionsData = [
-    { emotion: 'Felicidade', value: 98 },
-    { emotion: 'Amor', value: 100 },
-    { emotion: 'Carinho', value: 95 },
-    { emotion: 'Saudade', value: 85 },
-    { emotion: 'Paixão', value: 99 }
-  ];
-
-  const weekData = [
-    { dia: 'Seg', momentos: 12 },
-    { dia: 'Ter', momentos: 15 },
-    { dia: 'Qua', momentos: 18 },
-    { dia: 'Qui', momentos: 14 },
-    { dia: 'Sex', momentos: 20 },
-    { dia: 'Sáb', momentos: 25 },
-    { dia: 'Dom', momentos: 22 }
-  ];
-
-  const COLORS = ['#f093fb', '#f5576c', '#ffd89b', '#19547b'];
-
-  const stats = [
-    { icon: Heart, label: 'Dias Juntos', value: '159', color: '#f093fb' },
-    { icon: MessageCircle, label: 'Mensagens', value: '12.5k', color: '#f5576c' },
-    { icon: Camera, label: 'Fotos', value: '230', color: '#ffd89b' },
-    { icon: Music, label: 'Músicas', value: '180', color: '#19547b' }
-  ];
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-pink-900 to-red-900 text-white p-8">
-      {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-pink-300 to-purple-300 bg-clip-text text-transparent">
-          💕 Dashboard do Nosso Amor 💕
-        </h1>
-        <p className="text-xl text-pink-200">Estatísticas da nossa história, Mylena</p>
-      </div>
-
-      {/* Love Level */}
-      <div className="max-w-4xl mx-auto mb-12 bg-white/10 backdrop-blur-lg rounded-3xl p-8 border-2 border-pink-300/30">
-        <div className="text-center mb-4">
-          <h2 className="text-3xl font-bold mb-2">Nível de Amor</h2>
-          <p className="text-pink-200">Medidor oficial do nosso amor 💖</p>
-        </div>
-        <div className="relative w-full h-8 bg-gray-700 rounded-full overflow-hidden">
-          <div 
-            className="h-full bg-gradient-to-r from-pink-500 via-red-500 to-purple-500 transition-all duration-1000 ease-out flex items-center justify-end pr-4"
-            style={{ width: `${loveLevel}%` }}
-          >
-            <span className="text-white font-bold text-sm">∞%</span>
-          </div>
-        </div>
-        <p className="text-center mt-4 text-2xl font-bold">
-          {loveLevel === 100 ? 'INFINITO! ∞' : `${loveLevel}%`}
-        </p>
-      </div>
-
-      {/* Stats Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
-        {stats.map((stat, idx) => (
-          <div key={idx} className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border-2 border-white/20 hover:scale-105 transition-transform">
-            <stat.icon size={40} style={{ color: stat.color }} className="mb-3" />
-            <p className="text-3xl font-bold mb-1">{stat.value}</p>
-            <p className="text-sm text-gray-300">{stat.label}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Charts Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
-        
-        {/* Evolução do Amor */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border-2 border-pink-300/30">
-          <h3 className="text-2xl font-bold mb-4 text-center">📈 Evolução do Nosso Amor</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={monthlyData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-              <XAxis dataKey="mes" stroke="#fff" />
-              <YAxis stroke="#fff" />
-              <Tooltip contentStyle={{ backgroundColor: 'rgba(0,0,0,0.8)', border: 'none', borderRadius: '10px' }} />
-              <Legend />
-              <Line type="monotone" dataKey="felicidade" stroke="#f093fb" strokeWidth={3} dot={{ r: 6 }} />
-              <Line type="monotone" dataKey="amor" stroke="#f5576c" strokeWidth={3} dot={{ r: 6 }} />
-            </LineChart>
-          </ResponsiveContainer>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Amor ❤️</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="estilos/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💕 Dashboard do Nosso Amor 💕</h1>
+            <p>Estatísticas da nossa história, Mylena</p>
         </div>
 
-        {/* Atividades */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border-2 border-pink-300/30">
-          <h3 className="text-2xl font-bold mb-4 text-center">🎯 Nossas Atividades</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={activitiesData}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                outerRadius={100}
-                fill="#8884d8"
-                dataKey="value"
-              >
-                {activitiesData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip contentStyle={{ backgroundColor: 'rgba(0,0,0,0.8)', border: 'none', borderRadius: '10px' }} />
-            </PieChart>
-          </ResponsiveContainer>
+        <!-- Love Meter -->
+        <div class="love-meter">
+            <h2>Nível de Amor</h2>
+            <p>Medidor oficial do nosso amor 💖</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="loveFill">∞%</div>
+            </div>
+            <div class="love-percentage" id="lovePercentage">0%</div>
         </div>
 
-        {/* Momentos por Dia */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border-2 border-pink-300/30">
-          <h3 className="text-2xl font-bold mb-4 text-center">📅 Momentos da Semana</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={weekData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-              <XAxis dataKey="dia" stroke="#fff" />
-              <YAxis stroke="#fff" />
-              <Tooltip contentStyle={{ backgroundColor: 'rgba(0,0,0,0.8)', border: 'none', borderRadius: '10px' }} />
-              <Bar dataKey="momentos" fill="url(#colorGradient)" radius={[10, 10, 0, 0]} />
-              <defs>
-                <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#f093fb" />
-                  <stop offset="100%" stopColor="#f5576c" />
-                </linearGradient>
-              </defs>
-            </BarChart>
-          </ResponsiveContainer>
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">❤️</div>
+                <div class="stat-value" id="daysCounter">0</div>
+                <div class="stat-label">Dias Juntos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💬</div>
+                <div class="stat-value">+59k</div>
+                <div class="stat-label">Mensagens</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📷</div>
+                <div class="stat-value">+3k700</div>
+                <div class="stat-label">Mídias</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">❤️</div>
+                <div class="stat-value">∞</div>
+                <div class="stat-label">"Eu te amo!"</div>
+            </div>
         </div>
 
-        {/* Radar de Emoções */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border-2 border-pink-300/30">
-          <h3 className="text-2xl font-bold mb-4 text-center">💖 Radar das Emoções</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <RadarChart data={emotionsData}>
-              <PolarGrid stroke="rgba(255,255,255,0.2)" />
-              <PolarAngleAxis dataKey="emotion" stroke="#fff" />
-              <PolarRadiusAxis stroke="#fff" />
-              <Radar name="Intensidade" dataKey="value" stroke="#f093fb" fill="#f093fb" fillOpacity={0.6} />
-              <Tooltip contentStyle={{ backgroundColor: 'rgba(0,0,0,0.8)', border: 'none', borderRadius: '10px' }} />
-            </RadarChart>
-          </ResponsiveContainer>
+        <!-- Charts -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3>📈 Evolução do Nosso Amor</h3>
+                <div class="chart-container">
+                    <canvas id="loveChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>🎯 Nossas Atividades</h3>
+                <div class="chart-container">
+                    <canvas id="activitiesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>📅 Momentos da Semana</h3>
+                <div class="chart-container">
+                    <canvas id="weekChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>💖 Radar das Emoções</h3>
+                <div class="chart-container">
+                    <canvas id="emotionsChart"></canvas>
+                </div>
+            </div>
         </div>
-      </div>
 
-      {/* Final Message */}
-      <div className="max-w-4xl mx-auto bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur-lg rounded-3xl p-8 border-2 border-pink-300/30 text-center">
-        <h2 className="text-3xl font-bold mb-4">✨ Cada Número Conta uma História ✨</h2>
-        <p className="text-lg leading-relaxed text-pink-100">
-          Esses gráficos mostram um pouco da nossa jornada, mas o que realmente importa são os momentos que vivemos juntos. 
-          Cada conversa, cada risada, cada "te amo" - tudo isso faz parte da nossa história única e especial! 💕
-        </p>
-      </div>
-
-      {/* Back Button */}
-      <div className="text-center mt-12">
-        <a 
-          href="proxima.html" 
-          className="inline-block bg-gradient-to-r from-pink-500 to-purple-500 px-8 py-3 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-lg"
-        >
-          ← Voltar
-        </a>
-      </div>
+        <!-- Final Message -->
+        <div class="final-message">
+            <h2>✨ Cada Número Conta uma História ✨</h2>
+            <p>
+                Esses gráficos mostram um pouco da nossa jornada, mas o que realmente importa são os momentos que vivemos juntos. 
+                Cada conversa, cada risada, cada "te amo" - tudo isso faz parte da nossa história única e especial! 💕
+            </p>
+        </div>
     </div>
-  );
-}
+
+    <a href="playlist.html" class="back-button">← Voltar</a>
+
+        <script src="scripts/dashboard.js"></script>
+
+
+</body>
+</html>

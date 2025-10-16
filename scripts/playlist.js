@@ -37,7 +37,7 @@
             // Verificar se os elementos existem antes de atualizar
             if (!yearsEl || !monthsEl || !daysEl || !hoursEl) return;
             
-            const startDate = new Date('2025-06-05T21:30:00');
+            const startDate = new Date('2025-05-10T13:00:00');
             const now = new Date();
             
             const diff = now - startDate;
