@@ -247,3 +247,320 @@
                 grid-template-columns: 1fr;
             }
         }
+
+         /* Responsividade para Tablets */
+        @media (max-width: 768px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            .header {
+                margin-bottom: 40px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+                line-height: 1.2;
+            }
+
+            .header p {
+                font-size: 1.1em;
+            }
+
+            /* Love Meter Tablet */
+            .love-meter {
+                padding: 30px 25px;
+                margin-bottom: 40px;
+            }
+
+            .love-meter h2 {
+                font-size: 2em;
+            }
+
+            .progress-bar {
+                height: 35px;
+            }
+
+            .progress-fill {
+                font-size: 1.1em;
+                padding-right: 15px;
+            }
+
+            .love-percentage {
+                font-size: 1.8em;
+                margin-top: 18px;
+            }
+
+            /* Stats Grid Tablet */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .stat-card {
+                padding: 25px 20px;
+            }
+
+            .stat-icon {
+                font-size: 2.5em;
+                margin-bottom: 12px;
+            }
+
+            .stat-value {
+                font-size: 2em;
+                margin-bottom: 8px;
+            }
+
+            .stat-label {
+                font-size: 1em;
+            }
+
+            /* Charts Tablet */
+            .charts-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-bottom: 40px;
+            }
+
+            .chart-card {
+                padding: 25px 20px;
+            }
+
+            .chart-card h3 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+
+            .chart-container {
+                height: 280px;
+            }
+
+            /* Final Message Tablet */
+            .final-message {
+                padding: 40px 30px;
+            }
+
+            .final-message h2 {
+                font-size: 2em;
+                margin-bottom: 18px;
+            }
+
+            .final-message p {
+                font-size: 1.1em;
+                line-height: 1.7;
+            }
+
+            /* Back Button Tablet */
+            .back-button {
+                bottom: 20px;
+                left: 20px;
+                padding: 10px 25px;
+                font-size: 0.95em;
+            }
+        }
+
+        /* Responsividade para Smartphones */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .header {
+                margin-bottom: 30px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header p {
+                font-size: 0.95em;
+            }
+
+            /* Love Meter Mobile */
+            .love-meter {
+                padding: 20px 15px;
+                margin-bottom: 30px;
+                border-radius: 20px;
+            }
+
+            .love-meter h2 {
+                font-size: 1.6em;
+            }
+
+            .love-meter p {
+                font-size: 0.9em;
+            }
+
+            .progress-bar {
+                height: 28px;
+            }
+
+            .progress-fill {
+                font-size: 0.95em;
+                padding-right: 12px;
+            }
+
+            .love-percentage {
+                font-size: 1.5em;
+                margin-top: 15px;
+            }
+
+            /* Stats Grid Mobile */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                margin-bottom: 30px;
+            }
+
+            .stat-card {
+                padding: 18px 12px;
+                border-radius: 15px;
+            }
+
+            .stat-icon {
+                font-size: 2em;
+                margin-bottom: 10px;
+            }
+
+            .stat-value {
+                font-size: 1.6em;
+                margin-bottom: 6px;
+            }
+
+            .stat-label {
+                font-size: 0.85em;
+            }
+
+            /* Charts Mobile */
+            .charts-grid {
+                gap: 25px;
+                margin-bottom: 30px;
+            }
+
+            .chart-card {
+                padding: 18px 12px;
+                border-radius: 20px;
+            }
+
+            .chart-card h3 {
+                font-size: 1.2em;
+                margin-bottom: 15px;
+            }
+
+            .chart-container {
+                height: 220px;
+            }
+
+            /* Final Message Mobile */
+            .final-message {
+                padding: 25px 18px;
+                border-radius: 20px;
+            }
+
+            .final-message h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+
+            .final-message p {
+                font-size: 0.95em;
+                line-height: 1.6;
+            }
+
+            /* Back Button Mobile */
+            .back-button {
+                bottom: 15px;
+                left: 15px;
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Telas muito pequenas */
+        @media (max-width: 360px) {
+            body {
+                padding: 15px 8px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .header p {
+                font-size: 0.85em;
+            }
+
+            .love-meter {
+                padding: 18px 12px;
+            }
+
+            .love-meter h2 {
+                font-size: 1.4em;
+            }
+
+            .progress-bar {
+                height: 25px;
+            }
+
+            .progress-fill {
+                font-size: 0.85em;
+                padding-right: 10px;
+            }
+
+            .love-percentage {
+                font-size: 1.3em;
+            }
+
+            .stats-grid {
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 15px 10px;
+            }
+
+            .stat-icon {
+                font-size: 1.8em;
+            }
+
+            .stat-value {
+                font-size: 1.4em;
+            }
+
+            .stat-label {
+                font-size: 0.75em;
+            }
+
+            .chart-card {
+                padding: 15px 10px;
+            }
+
+            .chart-card h3 {
+                font-size: 1.1em;
+            }
+
+            .chart-container {
+                height: 200px;
+            }
+
+            .final-message {
+                padding: 20px 15px;
+            }
+
+            .final-message h2 {
+                font-size: 1.3em;
+            }
+
+            .final-message p {
+                font-size: 0.9em;
+            }
+
+            .back-button {
+                bottom: 12px;
+                left: 12px;
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
+        }
