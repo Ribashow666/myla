@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nossa Trilha Sonora ❤️</title>
+    <link rel="stylesheet" href="estilos/playlist.css">
 </head>
-<link rel="stylesheet" href="estilos/playlist.css">
-<script src="scripts/playlist.js"></script>
 <body>
     <div class="music-notes" id="musicNotes"></div>
 
@@ -80,28 +79,27 @@
             </div>
         </div>
     </div>
-
     <div class="surprise-section">
         <button class="surprise-button" onclick="showSurprise()">
             ✨ Clique aqui para uma surpresa ✨
         </button>
         <div class="surprise-content" id="surpriseContent">
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 30px 0;">
-                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px;">
-                    <div style="font-size: 2.5em; color: #f093fb; font-weight: bold;" id="years">0</div>
-                    <div style="color: #e0e0e0; margin-top: 10px;">Anos</div>
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <div class="counter-value" id="years" style="color: #f093fb;">0</div>
+                    <div class="counter-label">Anos</div>
                 </div>
-                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px;">
-                    <div style="font-size: 2.5em; color: #f5576c; font-weight: bold;" id="months">0</div>
-                    <div style="color: #e0e0e0; margin-top: 10px;">Meses</div>
+                <div class="counter-item">
+                    <div class="counter-value" id="months" style="color: #f5576c;">0</div>
+                    <div class="counter-label">Meses</div>
                 </div>
-                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px;">
-                    <div style="font-size: 2.5em; color: #ffd89b; font-weight: bold;" id="days">0</div>
-                    <div style="color: #e0e0e0; margin-top: 10px;">Dias</div>
+                <div class="counter-item">
+                    <div class="counter-value" id="days" style="color: #ffd89b;">0</div>
+                    <div class="counter-label">Dias</div>
                 </div>
-                <div style="text-align: center; background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px;">
-                    <div style="font-size: 2.5em; color: #f093fb; font-weight: bold;" id="hours">0</div>
-                    <div style="color: #e0e0e0; margin-top: 10px;">Horas</div>
+                <div class="counter-item">
+                    <div class="counter-value" id="hours" style="color: #f093fb;">0</div>
+                    <div class="counter-label">Horas</div>
                 </div>
             </div>
         </div>
@@ -110,5 +108,6 @@
     <a href="timeline.html" class="back-button" id="backButton">← Voltar</a>
     <a href="dashboard.html" class="next-button" id="nextButton">Dashboard →</a>
 
+    <script src="scripts/playlist.js"></script>
 </body>
 </html>

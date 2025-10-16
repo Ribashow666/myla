@@ -1,4 +1,4 @@
-// Criar notas musicais flutuantes
+ // Criar notas musicais flutuantes
         function createNote() {
             const notes = ['🎵', '🎶', '🎼', '🎸', '🎹'];
             const note = document.createElement('div');
