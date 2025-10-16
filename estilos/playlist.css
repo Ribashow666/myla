@@ -220,6 +220,30 @@
             display: block;
         }
 
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .counter-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .counter-value {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .counter-label {
+            color: #e0e0e0;
+            margin-top: 10px;
+        }
+
         .back-button {
             position: fixed;
             bottom: 30px;
@@ -280,12 +304,220 @@
             box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
         }
 
+        /* Responsividade para Tablets */
         @media (max-width: 768px) {
+            body {
+                padding-bottom: 80px;
+            }
+
+            .header {
+                padding: 60px 20px 40px;
+            }
+
             .header h1 {
-                font-size: 2.5em;
+                font-size: 2.2em;
+                line-height: 1.2;
+            }
+
+            .header p {
+                font-size: 1.1em;
             }
 
             .playlists-container {
                 grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 15px;
+            }
+
+            .playlist-card {
+                padding: 25px 20px;
+            }
+
+            .playlist-icon {
+                font-size: 3em;
+            }
+
+            .playlist-title {
+                font-size: 1.5em;
+            }
+
+            .playlist-description {
+                font-size: 1em;
+            }
+
+            .spotify-player iframe {
+                height: 300px;
+            }
+
+            .surprise-section {
+                margin: 60px auto;
+                padding: 30px 20px;
+            }
+
+            .surprise-button {
+                padding: 18px 40px;
+                font-size: 1.1em;
+            }
+
+            .surprise-content {
+                padding: 30px 20px;
+            }
+
+            .counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .counter-value {
+                font-size: 2em;
+            }
+
+            .back-button, .next-button {
+                bottom: 20px;
+                padding: 10px 25px;
+                font-size: 0.9em;
+            }
+
+            .back-button {
+                left: 20px;
+            }
+
+            .next-button {
+                right: 20px;
+            }
+        }
+
+        /* Responsividade para Smartphones */
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 15px 30px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header p {
+                font-size: 0.95em;
+            }
+
+            .note {
+                font-size: 20px;
+            }
+
+            .playlists-container {
+                gap: 25px;
+                padding: 25px 10px;
+            }
+
+            .playlist-card {
+                padding: 20px 15px;
+                border-radius: 20px;
+            }
+
+            .playlist-icon {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+
+            .playlist-title {
+                font-size: 1.3em;
+                margin-bottom: 12px;
+            }
+
+            .playlist-description {
+                font-size: 0.95em;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+
+            .spotify-player {
+                margin-top: 15px;
+            }
+
+            .spotify-player iframe {
+                height: 250px;
+            }
+
+            .surprise-section {
+                margin: 40px auto;
+                padding: 25px 15px;
+            }
+
+            .surprise-button {
+                padding: 15px 30px;
+                font-size: 1em;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .surprise-content {
+                padding: 25px 15px;
+                border-radius: 20px;
+            }
+
+            .counter-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                margin: 25px 0;
+            }
+
+            .counter-item {
+                padding: 15px 10px;
+                border-radius: 12px;
+            }
+
+            .counter-value {
+                font-size: 1.6em;
+            }
+
+            .counter-label {
+                font-size: 0.85em;
+                margin-top: 8px;
+            }
+
+            .back-button, .next-button {
+                bottom: 15px;
+                padding: 10px 20px;
+                font-size: 0.85em;
+            }
+
+            .back-button {
+                left: 15px;
+            }
+
+            .next-button {
+                right: 15px;
+            }
+        }
+
+        /* Telas muito pequenas */
+        @media (max-width: 360px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .playlist-card {
+                padding: 15px 12px;
+            }
+
+            .spotify-player iframe {
+                height: 220px;
+            }
+
+            .counter-grid {
+                gap: 10px;
+            }
+
+            .counter-item {
+                padding: 12px 8px;
+            }
+
+            .counter-value {
+                font-size: 1.4em;
+            }
+
+            .counter-label {
+                font-size: 0.75em;
             }
         }

@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -132,4 +132,55 @@
             border-radius: 15px;
             font-size: 1.2em;
             color: #764ba2;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 40px 30px;
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .message {
+                font-size: 1em;
+            }
+
+            .button {
+                padding: 12px 30px;
+                font-size: 1em;
+            }
+
+            .love-counter {
+                font-size: 1em;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .message {
+                font-size: 0.95em;
+            }
         }
