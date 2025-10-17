@@ -1,3 +1,19 @@
+// Criar emojis flutuantes
+        function createFloatingEmoji() {
+            const emojis = ['❤️', '💕', '💖', '💗', '💓', '💝', '💘', '💞', '📊', '📈', '💯'];
+            const emoji = document.createElement('div');
+            emoji.className = 'emoji';
+            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + '%';
+            emoji.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            emoji.style.animationDelay = Math.random() * 2 + 's';
+            document.getElementById('floatingEmojis').appendChild(emoji);
+            
+            setTimeout(() => emoji.remove(), 10000);
+        }
+
+        setInterval(createFloatingEmoji, 800);
+
 // Calcular dias juntos dinamicamente
         const startDate = new Date('2025-05-10');
         const today = new Date();
