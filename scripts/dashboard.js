@@ -44,17 +44,17 @@
         new Chart(loveCtx, {
             type: 'line',
             data: {
-                labels: ['Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out'],
+                labels: ['Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov'],
                 datasets: [{
                     label: 'Felicidade',
-                    data: [85, 90, 88, 92, 95, 98],
+                    data: [85, 90, 88, 92, 95, 98, 99],
                     borderColor: '#f093fb',
                     backgroundColor: 'rgba(240, 147, 251, 0.1)',
                     tension: 0.4,
                     borderWidth: 3
                 }, {
                     label: 'Amor',
-                    data: [90, 92, 95, 97, 98, 100],
+                    data: [90, 92, 95, 97, 98, 100, 100],
                     borderColor: '#f5576c',
                     backgroundColor: 'rgba(245, 87, 108, 0.1)',
                     tension: 0.4,
