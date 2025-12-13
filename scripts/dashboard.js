@@ -1,4 +1,5 @@
-// Criar emojis flutuantes
+document.addEventListener('DOMContentLoaded', function() {
+        // Criar emojis flutuantes
         function createFloatingEmoji() {
             const emojis = ['❤️', '💕', '💖', '💗', '💓', '💝', '💘', '💞', '📊', '📈', '💯'];
             const emoji = document.createElement('div');
@@ -169,4 +170,23 @@
                     }
                 }
             }
+        });
+            const backButton = document.querySelector('.back-button');
+const nextButton = document.querySelector('.next-button');
+
+function checkScrollEnd() {
+    const scrollPosition = window.innerHeight + window.scrollY;
+    const pageHeight = document.documentElement.scrollHeight;
+
+    if (scrollPosition >= pageHeight - 50) {
+        backButton.classList.add('show-navigation');
+        nextButton.classList.add('show-navigation');
+    } else {
+        backButton.classList.remove('show-navigation');
+        nextButton.classList.remove('show-navigation');
+    }
+}
+
+window.addEventListener('scroll', checkScrollEnd);
+
         });

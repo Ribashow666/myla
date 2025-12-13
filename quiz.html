@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Quanto Você Me Conhece? 💕</title>
+    <link rel="icon" type="image/x-icon" href="fotos_timeline/15-07.ico">
+    <link rel="stylesheet" href="estilos/quiz.css">
+</head>
+<body>
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <div style="max-width: 700px; margin: 0 auto;">
+        <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>💕 Quanto Você Lembra de Nós? 💕</h1>
+            <p>Vamos testar sua memória sobre nossa história!</p>
+        </div>
+
+        <!-- Tela Inicial -->
+        <div class="start-screen active">
+            <div class="start-content">
+                <p>
+                    Preparada para testar sua memória, amor? 😏<br><br>
+                    Vou te fazer algumas perguntas sobre NOSSA história juntos!
+                    Vamos ver se você lembra de tudo! 💕
+                </p>
+                <button class="start-btn" onclick="startQuiz()">Começar Quiz! 🎯</button>
+            </div>
+        </div>
+
+        <!-- Tela do Quiz -->
+        <div class="quiz-screen">
+            <div class="question-counter">
+                Pergunta <span id="currentQuestion">1</span> de <span id="totalQuestions">10</span>
+            </div>
+            <div class="question" id="question"></div>
+            <div class="options" id="options"></div>
+            <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Próxima →</button>
+        </div>
+
+        <!-- Tela de Resultado -->
+        <div class="result-screen">
+            <h2>🎉 Quiz Concluído! 🎉</h2>
+            <div class="score" id="score">0/10</div>
+            <div class="result-message" id="resultMessage"></div>
+            <div class="result-details">
+                <p>Você acertou <span id="correctAnswers">0</span> de <span id="totalQuestionsResult">10</span> perguntas!</p>
+                <p id="percentage"></p>
+            </div>
+            <button class="restart-btn" onclick="restartQuiz()">Jogar Novamente 🔄</button>
+        </div>
+    </div>
+
+    <a href="dashboard.html" class="back-button">← Voltar</a>
+
+    <div class="copyright">
+        © 2025 Feito com ❤️ por <a href="https://github.com/Ribashow666" target="_blank">Ribashow</a> para Mylena
+    </div>
+    <script src="scripts/quiz.js"></script>
+</body>
+</html>

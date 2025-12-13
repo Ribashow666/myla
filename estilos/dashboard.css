@@ -242,6 +242,41 @@
             box-shadow: 0 8px 30px rgba(240, 147, 251, 0.6);
         }
 
+        .next-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #c084fc 0%, #5eead4 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1em;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 5px 20px rgba(192, 132, 252, 0.4);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.next-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(192, 132, 252, 0.6);
+}
+.back-button,
+.next-button {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.show-navigation {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.5em;
